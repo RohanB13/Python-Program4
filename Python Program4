@@ -1,0 +1,85 @@
+J = 1
+OP5 = 0.0
+for J in (1, 2, 3, 4):
+
+    
+    K = raw_input("Please Enter Input Line "+ str(J) +" (with a comma in between): ")
+    K = K.replace(" ","")
+    L = K[:K.find(",")]
+    K = K[K.find(",")+1:]
+    S = K[:K.find(",")]
+    K = K[K.find(",")+1:]
+    T = K
+    
+    L = int(L)
+    S = int(S)
+
+    if T == '1' or T == '2' or T == '3' or T == '4' or T == '5' or T == '6' or T == '7' or T == '8' or T == '9':
+       T = int(T)
+    else:
+       T = T.upper()
+       
+
+    LIST1 = [1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H']
+    LIST2 = [9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17]
+
+
+    ST = LIST2[LIST1.index(S)]
+
+    ET = LIST2[LIST1.index(T)]
+
+    NOFHRS = ET - ST
+
+    if L >= 1 and L<=9:
+       PAY = NOFHRS * 10
+    else:
+        if L >=10 and L<=19:
+            if NOFHRS <= 4:
+               PAY = NOFHRS * 8
+            else:
+               PAY = 4*8 + (NOFHRS - 4)*12
+        else:
+          if L >=20 and L<=29:
+            if NOFHRS <= 4:
+               PAY = NOFHRS * 12
+            else:
+               PAY = 4*12 + (NOFHRS - 4)*24
+               
+          
+    OP5 = OP5 + PAY
+    
+    if J == 1:
+       IP1 = "1. "+str(L)+", "+str(S)+", "+str(T)
+       OP1 = "1. "+"$%0.2f" % PAY
+    else:
+       if J == 2:
+          IP2 = "2. "+str(L)+", "+str(S)+", "+str(T)
+          OP2 = "2. "+"$%0.2f" % PAY
+       else:
+           if J == 3:
+              IP3 = "3. "+str(L)+", "+str(S)+", "+str(T)
+              OP3 = "3. "+"$%0.2f" % PAY
+           else:
+               if J == 4:
+                  IP4 = "4. "+str(L)+", "+str(S)+", "+str(T)
+                  OP4 = "4. "+"$%0.2f" % PAY
+
+
+OP5 = "5. "+"$%0.2f" % OP5
+
+print " "
+print "------------RESULTS-----------"
+print " "
+print "TEST INPUT          " + "TEST OUTPUT          "
+print " "
+print IP1.ljust(20, ' ') + OP1
+print " "
+print IP2.ljust(20, ' ') + OP2
+print " "
+print IP3.ljust(20, ' ') + OP3
+print " "
+print IP4.ljust(20, ' ') + OP4
+print " "
+print "".ljust(20, ' ') + OP5
+print " "
+raw_input()
